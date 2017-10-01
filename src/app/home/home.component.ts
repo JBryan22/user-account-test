@@ -37,8 +37,6 @@ export class HomeComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.realuser = this.afAuth.auth.currentUser;
-    this.userId = this.realuser.email;
   }
 
   loginUser(event) {
@@ -63,6 +61,8 @@ export class HomeComponent implements OnInit{
 
   logout() {
       this.afAuth.auth.signOut();
+      this.userId = '';
+      this.realuser = null;
   }
 
   Send(desc: string) {
